@@ -1,0 +1,22 @@
+<form method="post" action="/person/findPerson" class="d-flex" >
+    <input class="form-control me-2" name="personID" type="search" placeholder="Nhập ID người cần tìm" aria-label="Search"/>
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+
+<% if (result != null){ %>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"> <%= result.Name %></h5>
+            <h6>SSN:</h6><p class="card-text"> <%=result.SSN%></p>
+            <h6>DoB:</h6><p class="card-text"><%=result.DOB%></p>
+            <h6>Home address:</h6><p class="card-text"><%=result.Home.Street%>, <%=result.Home.City%>, <%=result.Home.State%></p>
+            <h6>Office address:</h6><p class="card-text"> <%=result.Office.Street%>, <%=result.Office.City%></p>
+            <h6>SSN:</h6><p class="card-text"> <%=result.SSN%></p>  
+            <h6>Favorite colors:</h6>
+            <% for (var i = 0; i < result.FavoriteColors.FavoriteColorsItem.length; i++) { %>
+                <p class="card-text"><%=result.FavoriteColors.FavoriteColorsItem[i]%></p>
+            <% } %>
+            <h6>Age:</h6><p class="card-text"> <%=result.Age%></p>
+        </div>
+      </div>
+<% } %>
